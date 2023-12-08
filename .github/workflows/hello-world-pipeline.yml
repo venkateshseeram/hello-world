@@ -23,7 +23,5 @@ jobs:
           fi
       - name: Check npm version
         run: npm -v
-      - name: git repo clone
-        run: git clone https://github.com/venkateshseeram/hello-world
       - name: Start the application
         run: npm start
