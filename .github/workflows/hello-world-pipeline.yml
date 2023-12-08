@@ -30,3 +30,16 @@ jobs:
         port: 22
         source: "."
         target: "/hello-world"
+
+
+    - name: Run npm install and start
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.HOST }}
+        username: ubuntu
+        key: ${{ env.SSH_KEY }}
+        port: 22
+        script: |
+         cd /hello-world
+         npm install
+         npm start
