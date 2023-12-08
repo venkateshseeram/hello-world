@@ -1,7 +1,7 @@
 name: Deploy to EC2
 env:
     HOST: 'ec2-3-131-35-117.us-east-2.compute.amazonaws.com'
-    SSH_KEY: 'ssh -i "react_js.pem" ubuntu@ec2-3-131-35-117.us-east-2.compute.amazonaws.com'
+    SSH_KEY: 'ssh -i "C:\\Users\\kisho\\OneDrive\\Desktop\\pem particles\\react_js.pem" ubuntu@ec2-3-131-35-117.us-east-2.compute.amazonaws.com'
 
 on:
   schedule:
@@ -24,7 +24,8 @@ jobs:
       with:
         host: ec2-3-131-35-117.us-east-2.compute.amazonaws.com
         username: ubuntu
-        key: ssh -i "react_js.pem" ubuntu@ec2-3-131-35-117.us-east-2.compute.amazonaws.com
+        key: 'ssh -i "C:\\Users\\kisho\\OneDrive\\Desktop\\pem particles\\react_js.pem" ubuntu@ec2-3-131-35-117.us-east-2.compute.amazonaws.com'
+
         port: 22
         source: "."
         target: "/hello-world"
