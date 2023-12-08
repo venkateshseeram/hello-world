@@ -5,11 +5,11 @@ env:
 
 on:
   schedule:
-  - cron: "*/3 * * * *"
-#on:
-  #push:
-    #branches:
-      #- main
+    - cron: "*/2 * * * *"
+  push:
+    branches:
+      - main
+
 
 jobs:
   deploy:
