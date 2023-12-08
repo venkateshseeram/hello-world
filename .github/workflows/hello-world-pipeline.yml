@@ -17,16 +17,19 @@ jobs:
     - name: Set environment variables
       env:
         HOST: 'ec2-3-131-35-117.us-east-2.compute.amazonaws.com'
-        SSH_KEY: ssh -i "react_js.rsa" ubuntu@ec2-3-131-35-117.us-east-2.compute.amazonaws.com
+        USER_NAME: venky
+        PASSWORD: venky
       run: |
         echo "HOST=$HOST"
-        echo "SSH_KEY=$SSH_KEY"
+        echo "USER_NAME=$USER_NAME"
+        echo "PASSWORD=$PASSWORD"
+
     - name: Copy repository to EC2
       uses: appleboy/scp-action@master
       with:
         host: ${{ env.HOST }}
-        username: ubuntu
-        key: ${{ env.SSH_KEY }}
+        username: ${{ env.USER_NAME }}
+        password: ${{ env.PASSWORD }}
         port: 22
         source: "."
         target: "/hello-world"
@@ -36,8 +39,8 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.HOST }}
-        username: ubuntu
-        key: ${{ env.SSH_KEY }}
+        username: ${{ env.USER_NAME }}
+        password: ${{ env.PASSWORD }}
         port: 22
         script: |
          cd /hello-world
