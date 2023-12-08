@@ -1,5 +1,8 @@
 name: Deploy to EC2
-
+env:
+    HOST: 'ec2-3-131-35-117.us-east-2.compute.amazonaws.com'
+    SSH_KEY: 'ssh -i "react_js.pem" ubuntu@ec2-3-131-35-117.us-east-2.compute.amazonaws.com'
+    
 on:
  # push:
     branches:
@@ -17,9 +20,9 @@ jobs:
     - name: Copy repository to EC2
       uses: appleboy/scp-action@master
       with:
-        host: ec2-3-128-229-104.us-east-2.compute.amazonaws.com
+        host: $HOST
         username: ubuntu
-        key: ssh -i "react_js.pem" ubuntu@ec2-3-128-229-104.us-east-2.compute.amazonaws.com
+        key: $SSH_KEY
         port: 22
         source: "."
         target: "/hello-world"
@@ -27,9 +30,9 @@ jobs:
     - name: Run npm install and start
       uses: appleboy/ssh-action@master
       with:
-        host: ec2-3-128-229-104.us-east-2.compute.amazonaws.com
+        host: ${HOST}
         username: ubuntu
-        key: ssh -i "react_js.pem" ubuntu@ec2-3-128-229-104.us-east-2.compute.amazonaws.com
+        key: ${SSH_KEY}
         port: 22
         script: |
           cd /path/to/your/repo
