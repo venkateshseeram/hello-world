@@ -35,6 +35,6 @@ jobs:
         key: ${SSH_KEY}
         port: 22
         script: |
-          cd /path/to/your/repo
+          cd /hello-world
           npm install
           npm start
