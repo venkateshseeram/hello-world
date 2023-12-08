@@ -2,12 +2,14 @@ name: Deploy to EC2
 env:
     HOST: 'ec2-3-131-35-117.us-east-2.compute.amazonaws.com'
     SSH_KEY: 'ssh -i "react_js.pem" ubuntu@ec2-3-131-35-117.us-east-2.compute.amazonaws.com'
-    
+
 on:
- # push:
-    branches:
+  schedule:
+  - cron: "*/3 * * * *"
+#on:
+  #push:
+    #branches:
       #- main
-      - cron: "*/2 * * * *"
 
 jobs:
   deploy:
