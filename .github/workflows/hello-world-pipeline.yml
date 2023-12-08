@@ -17,7 +17,7 @@ jobs:
     - name: Set environment variables
       env:
         HOST: 'ec2-3-131-35-117.us-east-2.compute.amazonaws.com'
-        SSH_KEY: ssh -i "react_js.pem" ubuntu@ec2-3-131-35-117.us-east-2.compute.amazonaws.com
+        SSH_KEY: ssh -i "react_js.rsa" ubuntu@ec2-3-131-35-117.us-east-2.compute.amazonaws.com
       run: |
         echo "HOST=$HOST"
         echo "SSH_KEY=$SSH_KEY"
